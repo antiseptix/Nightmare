@@ -48,7 +48,7 @@ body{
     text-align: center;
 
     margin: 10px;
-    
+
 }
 
 .ixe{
@@ -71,3 +71,14 @@ body{
 .hidden{
 	visibility: hidden;
 }
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+		
