@@ -12,15 +12,15 @@ function errorMessage(message){
 function search() {
 
 	var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
-
+  var apiId = "&APPID=fd0d9b2950b515677aa81096225742fc";
 	var searchValue = document.getElementById("searchInput").value;
 
 	// On appelle le service pour récupérer les données du lieu rechercher
 
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", apiUrl + searchValue, true);
+	xhr.open("GET", apiUrl + searchValue + apiId, true);
 	xhr.error = errorMessage;
-	xhr.onreadystatechange = function() { 
+	xhr.onreadystatechange = function() {
 		 if(xhr.readyState == 4) {
 		 	if  (xhr.status==200)
 				showData(JSON.parse(xhr.responseText));
@@ -37,7 +37,7 @@ function search() {
 function showData(data){
 
 
-	if (data && 
+	if (data &&
 		(!data.cod || data.cod == 200)) { //On vérifie que l'on a bien récupéré les données
 
 		//if(wrapper){} il semble que ça sert à rien?
@@ -56,13 +56,13 @@ function showData(data){
 		var img = document.createElement("img");
 		img.setAttribute("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
 		myDiv.appendChild(img);
-		
+
 
 		var temp = document.createElement("p");
 		temp.appendChild(document.createTextNode("Temp | " + converTemp(data.main.temp) + "°C, "));
-		myDiv.appendChild(temp);	
+		myDiv.appendChild(temp);
 
-		
+
 		var humidity = document.createElement("p");
 		humidity.appendChild(document.createTextNode("Humidity | " + data.main.humidity + " %"));
 		myDiv.appendChild(humidity);
@@ -84,8 +84,8 @@ function showData(data){
 		ixe.addEventListener("click", close);
 
 
-	} else { 
-		errorMessage("The city you entered wasn't found."); 
+	} else {
+		errorMessage("The city you entered wasn't found.");
 	}
 
 }
@@ -108,7 +108,7 @@ function searchStart(e){
 }
 
 // Debut
-function start() { 
+function start() {
 	window.alert("ca marche aussi avec entree");
 	console.log("Start"); //Affiche start sur la console
 	bindEvents();
