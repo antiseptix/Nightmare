@@ -3,19 +3,26 @@
 <html lang="fr">
 
 	<head>
-		<title>Accueil</title>
+		<title>OpenDataUser</title>
 		<meta charset="UTF-8">
-		<title> Département informatique </title>
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<link rel="stylesheet" href="baseWeather.css">
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+		<!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 	</head>
 
 
 	<body>
 
-		<input type="text" name="sujet" id="searchInput" placeholder="City" required>
 
-		<button id="searchButton"> Search </button>
+		<div class="center">
+			<input type="text" name="sujet" id="searchInput" placeholder="City" required>
+			<button id="searchButton"> Search </button>
+		</div>
 
 		<main id="wrapper" class="wrapper"></main>
 
